@@ -1,0 +1,12 @@
+{% extends "base2.html" %}
+
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<h1 style="font-size:2em; text-align:center; ">오늘 작성한 Post</h1>
+<h1>Post Archives for {{day|date:"N d, Y"}}</h1>
+
+{% include 'post_list.html' %}
+{% include 'pagination.html' %}
+{% endblock %}

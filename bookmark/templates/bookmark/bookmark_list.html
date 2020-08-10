@@ -1,0 +1,30 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block title %} bookmark_list.html{% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>Bookmark List</h1>
+    <ul>
+        {% for bookmark in bookmark_list%}
+        <li>
+            <a href ="{% url 'bookmark:detail' bookmark.id %}">
+                <img src="{%static 'images/구글.jpg' %}" alt="Noimage" style="width:20px"/> {{bookmark}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div>
+    {% if user.is_active %}
+    <a href="{% url 'bookmark:add' %}" class="btn btn-primary btn-sm">
+        <i class="fas fa-pencil-alt"></i>쓰기
+    </a>
+    <a href="{% url 'bookmark:change' %}" class="btn btn-primary btn-sm">
+        <i class="fas fa-edit"></i>수정 목록
+    </a>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block title %} bookmark_change_list.html{% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>My Bookmark List</h1>
+    <ul>
+        {% for bookmark in bookmark_list%}
+        <li>
+            {% if bookmark.owner == user.name  %}
+            <a href ="{% url 'bookmark:detail' bookmark.id %}">
+                <img src="{%static 'images/구글.jpg' %}" alt="Noimage" style="width:20px"/> {{bookmark}}</a>
+            {% endif%}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

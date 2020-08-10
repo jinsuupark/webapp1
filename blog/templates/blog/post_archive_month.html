@@ -1,0 +1,21 @@
+{% extends 'base2.html' %}
+
+{% block title %}post_archive_month.html{% endblock %}
+
+{% block content %}
+<h1>Post Achives for {{ month|date:"N,Y" }}</h1>
+<ul>
+    {% for date in date_list %}
+    <li style="display:inline;">
+        <a href="{% url 'blog:post_day_archive' month|date:'Y' month|date:'m' date|date:'d' %}">
+            {{ date|date:'d' }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+<div>
+    {% include "post_list.html" %}
+</div>
+{% endblock %}
